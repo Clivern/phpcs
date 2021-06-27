@@ -2,21 +2,25 @@
 
 declare(strict_types=1);
 
+/*
+ * This file is part of Clivern/phpcs - PHP Coding Standards
+ * (c) Clivern <hello@clivern.com>
+ */
+
 namespace Clivern\CodingStandards;
 
 /**
- * Custom Rules
+ * Custom Rules.
  */
 class Rules
 {
-
-    private $rules = [
-        '@Symfony'                => true,
+    public const DEFAULTS = [
+        '@Symfony'     => true,
         'array_syntax' => ['syntax' => 'short'],
 
         'phpdoc_add_missing_param_annotation' => true,
 
-        'ordered_class_elements'                           => [
+        'ordered_class_elements' => [
             'order' => [
                 'use_trait',
                 'constant_public', 'constant_protected', 'constant_private',
@@ -24,17 +28,17 @@ class Rules
             ],
         ],
 
-        'phpdoc_types_order' => true,
-        'strict_comparison' => true,
-        'strict_param' => true,
-        'phpdoc_order' => true,
+        'phpdoc_types_order'          => true,
+        'strict_comparison'           => true,
+        'strict_param'                => true,
+        'phpdoc_order'                => true,
         'semicolon_after_instruction' => true,
-        'ordered_imports' => [
+        'ordered_imports'             => [
             'imports_order' => ['class', 'function', 'const'],
         ],
 
         'no_unreachable_default_argument_value' => true,
-        'linebreak_after_opening_tag' => true,
+        'linebreak_after_opening_tag'           => true,
 
         'align_multiline_comment' => [
             'comment_type' => 'all_multiline',
@@ -66,11 +70,8 @@ class Rules
         'fully_qualified_strict_types' => true,
         'function_to_constant'         => true,
         'global_namespace_import'      => false,
-        'increment_style' => [
+        'increment_style'              => [
             'style' => 'post',
-        ],
-        'is_null' => [
-            'use_yoda_style' => false,
         ],
         'list_syntax' => [
             'syntax' => 'short',
@@ -114,7 +115,7 @@ class Rules
         'php_unit_test_case_static_method_calls' => [
             'call_type' => 'self',
         ],
-        'phpdoc_no_alias_tag'           => [
+        'phpdoc_no_alias_tag' => [
             'replacements' => [
                 'link' => 'see',
                 'type' => 'var',
@@ -146,27 +147,23 @@ class Rules
 
     /**
      * PHP 7.1 Specific.
-     *
-     * @param string $fileHeaderComment
-     * @param array $override
      */
     public static function PHP71(string $fileHeaderComment, array $override = []): array
     {
+        $rules = self::DEFAULTS;
+
         if (!empty($fileHeaderComment)) {
-            $this->rules['header_comment'] = ['header' => $fileHeaderComment, 'separate' => 'both'];
+            $rules['header_comment'] = ['header' => $fileHeaderComment, 'separate' => 'both'];
         }
 
         return array_merge(
-            $this->rules,
+            $rules,
             $override
         );
     }
 
     /**
      * PHP 7.2 Specific.
-     *
-     * @param string $fileHeaderComment
-     * @param array $override
      */
     public static function PHP72(string $fileHeaderComment, array $override = []): array
     {
@@ -181,9 +178,6 @@ class Rules
 
     /**
      * PHP 7.3 Specific.
-     *
-     * @param string $fileHeaderComment
-     * @param array $override
      */
     public static function PHP73(string $fileHeaderComment, array $override = []): array
     {

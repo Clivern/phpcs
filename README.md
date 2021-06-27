@@ -1,9 +1,9 @@
 <p align="center">
-    <img alt="phpcs logo" src="/assets/img/logo.png?v=1.0.0" height="200" />
+    <img alt="phpcs logo" src="/assets/img/logo.png?v=1.0.1" height="200" />
     <h3 align="center">PHP Coding Standards</h3>
     <p align="center">
         <a href="https://packagist.org/packages/clivern/phpcs">
-            <img src="https://img.shields.io/badge/Version-1.0.0-red.svg">
+            <img src="https://img.shields.io/badge/Version-1.0.1-red.svg">
         </a>
         <a href="https://github.com/Clivern/phpcs/blob/master/LICENSE">
             <img src="https://img.shields.io/badge/LICENSE-MIT-orange.svg">
@@ -22,23 +22,36 @@ To install the package via `composer`, use the following:
 $ composer require clivern/phpcs
 ```
 
-Place a file named `.php_cs.dist` that has following content in your project's root directory.
+Place a file named `.php-cs-fixer.dist.php` that has following content in your project's root directory.
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Clivern\CodingStandards\Rules;
 use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 
+
+$fileHeaderComment = <<<COMMENT
+This file is part of Clivern/phpcs - PHP Coding Standards
+(c) Clivern <hello@clivern.com>
+COMMENT;
+
 $finder = Finder::create()
     ->name('.php_cs.dist')
-    ->in(__DIR__);
+    ->in(__DIR__)
+    ->exclude('vendor');
 
-return Config::create()
+$overrides = [
+    'declare_strict_types' => true,
+];
+
+return (new Config())
     ->setFinder($finder)
     ->setRiskyAllowed(true)
-    ->setRules(Rules::PHP72());
+    ->setRules(Rules::PHP72($fileHeaderComment, $overrides));
 ```
 
 

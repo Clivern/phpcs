@@ -14,13 +14,14 @@ COMMENT;
 
 $finder = Finder::create()
     ->name('.php_cs.dist')
-    ->in(__DIR__);
+    ->in(__DIR__)
+    ->exclude('vendor');
 
 $overrides = [
     'declare_strict_types' => true,
 ];
 
-return Config::create()
+return (new Config())
     ->setFinder($finder)
     ->setRiskyAllowed(true)
     ->setRules(Rules::PHP72($fileHeaderComment, $overrides));
