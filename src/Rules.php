@@ -15,10 +15,31 @@ namespace Clivern\CodingStandards;
 class Rules
 {
     public const DEFAULTS = [
-        '@Symfony'     => true,
-        'array_syntax' => ['syntax' => 'short'],
+        '@Symfony'          => true,
+        'array_syntax'      => ['syntax' => 'short'],
+        'array_indentation' => true,
 
         'phpdoc_add_missing_param_annotation' => true,
+        'phpdoc_types_order'                  => true,
+        'phpdoc_order'                        => true,
+
+        'phpdoc_no_alias_tag' => [
+            'replacements' => [
+                'link' => 'see',
+                'type' => 'var',
+            ],
+        ],
+        'phpdoc_order'                                  => true,
+        'phpdoc_trim_consecutive_blank_line_separation' => true,
+        'phpdoc_no_empty_return'                        => true,
+
+        'cast_spaces' => [
+            'space' => 'single',
+        ],
+
+        'concat_space' => [
+            'spacing' => 'one',
+        ],
 
         'ordered_class_elements' => [
             'order' => [
@@ -28,10 +49,9 @@ class Rules
             ],
         ],
 
-        'phpdoc_types_order'          => true,
-        'strict_comparison'           => true,
-        'strict_param'                => true,
-        'phpdoc_order'                => true,
+        'strict_comparison' => true,
+        'strict_param'      => true,
+
         'semicolon_after_instruction' => true,
         'ordered_imports'             => [
             'imports_order' => ['class', 'function', 'const'],
@@ -43,7 +63,7 @@ class Rules
         'align_multiline_comment' => [
             'comment_type' => 'all_multiline',
         ],
-        'array_indentation'      => true,
+
         'binary_operator_spaces' => [
             'default' => 'align_single_space_minimal',
         ],
@@ -53,16 +73,12 @@ class Rules
                 'if', 'return', 'switch', 'throw', 'try', 'while', 'yield',
             ],
         ],
-        'cast_spaces' => [
-            'space' => 'none',
-        ],
+
         'combine_consecutive_issets' => true,
         'combine_consecutive_unsets' => true,
         'combine_nested_dirname'     => true,
         'compact_nullable_typehint'  => true,
-        'concat_space'               => [
-            'spacing' => 'one',
-        ],
+
         'dir_constant'                 => true,
         'escape_implicit_backslashes'  => true,
         'explicit_indirect_variable'   => true,
@@ -93,48 +109,30 @@ class Rules
                 'return', 'square_brace_block', 'throw', 'use_trait',
             ],
         ],
-        'no_null_property_initialization'                  => true,
-        'no_superfluous_elseif'                            => true,
-        'no_superfluous_phpdoc_tags'                       => true,
+        'no_null_property_initialization' => true,
+        'no_superfluous_elseif'           => true,
+
         'no_unset_cast'                                    => true,
         'no_unset_on_property'                             => false,
         'no_useless_else'                                  => true,
         'no_useless_return'                                => true,
         'nullable_type_declaration_for_default_null_value' => true,
 
-        'phpdoc_line_span' => [
-            'const'    => 'single',
-            'method'   => 'multi',
-            'property' => 'single',
-        ],
-
-        'phpdoc_no_empty_return'                 => true,
         'php_unit_construct'                     => true,
         'php_unit_dedicate_assert_internal_type' => true,
         'php_unit_method_casing'                 => true,
         'php_unit_test_case_static_method_calls' => [
             'call_type' => 'self',
         ],
-        'phpdoc_no_alias_tag' => [
-            'replacements' => [
-                'link' => 'see',
-                'type' => 'var',
-            ],
-        ],
-        'phpdoc_order'                                  => true,
-        'phpdoc_trim_consecutive_blank_line_separation' => true,
-        'phpdoc_types_order'                            => [
-            'null_adjustment' => 'always_last',
-        ],
-        'phpdoc_var_annotation_correct_order' => true,
-        'pow_to_exponentiation'               => true,
-        'return_assignment'                   => true,
-        'simple_to_complex_string_variable'   => true,
-        'single_class_element_per_statement'  => true,
-        'single_line_throw'                   => false,
-        'single_quote'                        => false,
-        'single_trait_insert_per_statement'   => true,
-        'space_after_semicolon'               => [
+
+        'pow_to_exponentiation'              => true,
+        'return_assignment'                  => true,
+        'simple_to_complex_string_variable'  => true,
+        'single_class_element_per_statement' => true,
+        'single_line_throw'                  => false,
+        'single_quote'                       => false,
+        'single_trait_insert_per_statement'  => true,
+        'space_after_semicolon'              => [
             'remove_in_empty_for_expressions' => true,
         ],
         'ternary_to_null_coalescing' => true,

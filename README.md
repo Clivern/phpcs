@@ -1,9 +1,9 @@
 <p align="center">
-    <img alt="phpcs logo" src="/assets/img/logo.png?v=1.0.1" height="200" />
+    <img alt="phpcs logo" src="/assets/img/logo.png?v=1.0.2" height="200" />
     <h3 align="center">PHP Coding Standards</h3>
     <p align="center">
         <a href="https://packagist.org/packages/clivern/phpcs">
-            <img src="https://img.shields.io/badge/Version-1.0.1-red.svg">
+            <img src="https://img.shields.io/badge/Version-1.0.2-red.svg">
         </a>
         <a href="https://github.com/Clivern/phpcs/blob/master/LICENSE">
             <img src="https://img.shields.io/badge/LICENSE-MIT-orange.svg">
@@ -19,7 +19,7 @@
 To install the package via `composer`, use the following:
 
 ```zsh
-$ composer require clivern/phpcs
+$ composer require clivern/phpcs --dev
 ```
 
 Place a file named `.php-cs-fixer.dist.php` that has following content in your project's root directory.
