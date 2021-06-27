@@ -1,0 +1,25 @@
+{
+    "name": "clivern/phpcs",
+    "type": "library",
+    "description": "PHP Coding Standards.",
+    "keywords": ["clivern", "phpcs"],
+    "license": "MIT",
+    "homepage": "https://github.com/clivern/phpcs",
+    "authors": [
+        {
+            "name": "Clivern",
+            "email": "hello@clivern.com",
+            "homepage": "http://clivern.com",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3 || ^8.0",
+        "friendsofphp/php-cs-fixer": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Clivern\\CodingStandards\\": "src/"
+        }
+    }
+}
